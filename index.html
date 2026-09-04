@@ -1,0 +1,497 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lana - E-Commerce</title>
+    <link rel="icon" href="Icon.jpeg" type="image" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <!--Header-->
+        <header>
+            <nav class="navbar navstyle">
+                <a href="#" class="nav-logo">
+                    <h2 class="logo-text">Lana</h2>
+                </a>
+
+                <!-- Search Input in Header -->
+                <div class="header-search-bar">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="search-input" placeholder="Search products, brands, categories...">
+                </div>
+
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#hero" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#shop-section" class="nav-link">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#categories" class="nav-link">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#footer" class="nav-link">Contact Us</a>
+                    </li>
+                </ul>
+
+                <div class="header-actions">
+                    <!-- Wishlist Icon -->
+                    <button class="nav-action-btn" onclick="openWishlistModal()" title="Wishlist">
+                        <i class="far fa-heart"></i>
+                        <span class="wishlist-badge badge" style="display: none;">0</span>
+                    </button>
+
+                    <!-- Cart Icon -->
+                    <button class="nav-action-btn" onclick="openCartModal()" title="Cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-badge badge" style="display: none;">0</span>
+                    </button>
+
+                    <!-- User Account / Auth Dropdown -->
+                    <div id="auth-nav-btn">
+                        <button class="nav-login-btn" onclick="openAuthModal()"><i class="fas fa-user"></i> Login</button>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <!--Hero Section-->
+            <section class="hero-section" id="hero">
+                <div class="section-content">
+                    <div class="hero-details">
+                        <div class="hero-text">
+                            <h1 class="title"><span>Everything</span> You Need, In One Place </h1>
+                            <p class="description">From fashion to everyday essentials, explore what's new!</p>
+                            <button onclick="document.getElementById('shop-section').scrollIntoView({behavior: 'smooth'})">SHOP NOW</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Categories Section -->
+            <section class="categories" id="categories">
+                <h2 class="section-title">Shop by Category</h2>
+                <div class="category-grid">
+                    <a href="#shop-section" class="category-card">
+                        <img src="Img/MEN.jpeg" alt="Men Fashion">
+                        <h3>Men</h3>
+                    </a>
+                    <a href="#shop-section" class="category-card">
+                        <img src="Img/WOMEN.jpeg" alt="Women Fashion">
+                        <h3>Women</h3>
+                    </a>
+                    <a href="#shop-section" class="category-card">
+                        <img src="Img/KIDS.jpeg" alt="Kids Fashion">
+                        <h3>Kids</h3>
+                    </a>
+                    <a href="#shop-section" class="category-card">
+                        <img src="Img/ELECTRONICS.jpeg" alt="Electronics">
+                        <h3>Electronics</h3>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Featured Products Section -->
+            <section class="featured-products" id="shop-section">
+                <h2 class="section-title">Featured Products</h2>
+
+                <!-- Category Pills & Sort Bar -->
+                <div class="shop-filter-bar">
+                    <div class="category-pills">
+                        <button class="cat-pill active" data-category="all">All Products</button>
+                        <button class="cat-pill" data-category="men">Men</button>
+                        <button class="cat-pill" data-category="women">Women</button>
+                        <button class="cat-pill" data-category="kids">Kids</button>
+                        <button class="cat-pill" data-category="electronics">Electronics</button>
+                    </div>
+
+                    <div class="sort-wrapper">
+                        <label for="sort-select"><i class="fas fa-sort-amount-down"></i> Sort:</label>
+                        <select id="sort-select">
+                            <option value="featured">Featured</option>
+                            <option value="price_asc">Price: Low to High</option>
+                            <option value="price_desc">Price: High to Low</option>
+                            <option value="rating">Top Rated</option>
+                            <option value="newest">Newest First</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="product-grid" id="featured-product-grid">
+                    <!-- Dynamic products rendered here by app.js -->
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="Img/Trousers.jpeg" alt="Trousers">
+                        </div>
+                        <h4>Trousers</h4>
+                        <p class="price">₹999</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <button onclick="addToCart(1)">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="Img/Ankle boots.jpeg" alt="Ankle Boots">
+                        </div>
+                        <h4>Ankle Boots</h4>
+                        <p class="price">₹899</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <button onclick="addToCart(2)">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="Img/Shoe.jpeg" alt="Shoe">
+                        </div>
+                        <h4>Shoe</h4>
+                        <p class="price">₹1,200</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <button onclick="addToCart(3)">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="Img/bose_headphone_image.png" alt="Wireless Headphones">
+                        </div>
+                        <h4>Wireless Headphones</h4>
+                        <p class="price">₹1,299</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <button onclick="addToCart(4)">Add to Cart</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Special Offer Banner -->
+            <h2 class="section-title">Special offer</h2>
+            <section class="special-banner">
+                <div class="banner-text">
+                    <h2>SALE</h2>
+                    <p>UP TO 70% OFF</p>
+                    <button onclick="document.getElementById('shop-section').scrollIntoView({behavior: 'smooth'})">Shop Now</button>
+                </div>
+            </section>
+
+            <!-- New Arrivals Section -->
+            <section class="new-arrivals">
+                <h2 class="section-title">New Arrivals</h2>
+                <div class="arrival-grid" id="new-arrival-grid">
+                    <!-- Dynamic new arrivals rendered here by app.js -->
+                    <div class="arrival-card">
+                        <div class="arrival-image-container">
+                            <img src="Img/speaker.jpg" alt="Bluetooth Speaker">
+                        </div>
+                        <h4>Bluetooth Speaker</h4>
+                        <p class="price">₹1,299</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <button onclick="addToCart(7)">Add to Cart</button>
+                    </div>
+
+                    <div class="arrival-card">
+                        <div class="arrival-image-container">
+                            <img src="Img/Blazer.jpg" alt="Blazer">
+                        </div>
+                        <h4>Blazer</h4>
+                        <p class="price">₹1999</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <button onclick="addToCart(8)">Add to Cart</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Summer Sale Banners -->
+            <section class="summer-sale">
+                <div class="sale-content">
+                    <h2 class="section-title">Upcoming season</h2>
+                    <p class="sale-description1">The best classic dress is on sale at Lana</p>
+                    <button onclick="setCategoryFilter('women')">Shop the Offer</button>
+                </div>
+
+                <div class="sale-content2">
+                    <h2 class="section-title">Summer Sale</h2>
+                    <h3>Buy 1 Get 1 Free!</h3>
+                    <p class="sale-description">Grab your favorites before the sun sets. <br> Limited time only!</p>
+                    <button onclick="document.getElementById('shop-section').scrollIntoView({behavior: 'smooth'})">Shop the Offer</button>
+                </div>
+            </section>
+
+            <!-- Newsletter Section -->
+            <section class="newsletter">
+                <div class="newstext">
+                    <h4>Sign Up for Newsletters</h4>
+                    <p>Get E-mail updates about our latest shop and <span>special offers.</span></p>
+                </div>
+                <form class="form" id="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit">Sign Up</button>
+                </form>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer" id="footer">
+                <div class="footer-container">
+                    <!-- Column 1 -->
+                    <div class="footer-col">
+                        <h2 class="logo">Lana</h2>
+                        <p>Your one-stop store for everything trendy and affordable.</p>
+                        <div class="socials">
+                            <i class="fab fa-facebook-f"></i>
+                            <i class="fab fa-twitter"></i>
+                            <i class="fab fa-instagram"></i>
+                            <i class="fab fa-linkedin-in"></i>
+                        </div>
+                    </div>
+
+                    <!-- Column 2 -->
+                    <div class="footer-col">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="#hero">Home</a></li>
+                            <li><a href="#shop-section">Shop</a></li>
+                            <li><a href="#categories">Categories</a></li>
+                            <li><a href="#footer">Contact</a></li>
+                            <li><a href="#" onclick="openAuthModal()">My Account</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Column 3 -->
+                    <div class="footer-col">
+                        <h3>Contact</h3>
+                        <p>Email: support@lana.com</p>
+                        <p>Phone: +91 98765 43210</p>
+                        <p>Address: Chennai, India</p>
+                    </div>
+
+                    <!-- Column 4 -->
+                    <div class="footer-col">
+                        <h3>Instagram</h3>
+                        <div class="instagram-grid">
+                            <img src="Img/1.jpg" alt="Insta 1">
+                            <img src="Img/2.jpg" alt="Insta 2">
+                            <img src="Img/3.jpg" alt="Insta 3">
+                            <img src="Img/5.jpg" alt="Insta 4">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="back-to-top">
+                    <a href="#hero">⬆ Back to Top</a>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>© 2025 Lana. All Rights Reserved.</p>
+                </div>
+            </footer>
+
+        </main>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- MODALS & DRAWERS FOR E-COMMERCE FUNCTIONALITY -->
+    <!-- ========================================================= -->
+
+    <!-- Product Detail Modal -->
+    <div class="modal" id="product-detail-modal">
+        <div class="modal-overlay" onclick="closeModal('product-detail-modal')"></div>
+        <div class="modal-container modal-large">
+            <button class="modal-close-btn" onclick="closeModal('product-detail-modal')">&times;</button>
+            <div id="product-detail-content">
+                <!-- Dynamically filled by app.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="modal" id="cart-modal">
+        <div class="modal-overlay" onclick="closeModal('cart-modal')"></div>
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3><i class="fas fa-shopping-bag"></i> Your Shopping Cart</h3>
+                <button class="modal-close-btn" onclick="closeModal('cart-modal')">&times;</button>
+            </div>
+            <div id="cart-modal-content">
+                <!-- Dynamically filled by app.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Wishlist Modal -->
+    <div class="modal" id="wishlist-modal">
+        <div class="modal-overlay" onclick="closeModal('wishlist-modal')"></div>
+        <div class="modal-container modal-medium">
+            <div class="modal-header">
+                <h3><i class="fas fa-heart" style="color: coral;"></i> Your Wishlist</h3>
+                <button class="modal-close-btn" onclick="closeModal('wishlist-modal')">&times;</button>
+            </div>
+            <div id="wishlist-modal-content">
+                <!-- Dynamically filled by app.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Auth (Login & Register) Modal -->
+    <div class="modal" id="auth-modal">
+        <div class="modal-overlay" onclick="closeModal('auth-modal')"></div>
+        <div class="modal-container modal-small">
+            <button class="modal-close-btn" onclick="closeModal('auth-modal')">&times;</button>
+            <div class="auth-tabs">
+                <button class="auth-tab active" id="tab-login-btn" onclick="switchAuthTab('login')">Login</button>
+                <button class="auth-tab" id="tab-register-btn" onclick="switchAuthTab('register')">Register</button>
+            </div>
+
+            <!-- Login Form -->
+            <div id="login-form-box">
+                <form id="login-form" onsubmit="handleUserLogin(event)">
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" id="login-email" required placeholder="user@lana.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" id="login-password" required placeholder="••••••••">
+                    </div>
+                    <button type="submit" class="submit-btn">Sign In</button>
+                </form>
+                <div class="demo-logins">
+                    <p>Quick Demo Sign-In:</p>
+                    <button type="button" onclick="quickDemoLogin('user')">User Demo</button>
+                    <button type="button" onclick="quickDemoLogin('admin')">Admin Demo</button>
+                </div>
+            </div>
+
+            <!-- Register Form -->
+            <div id="register-form-box" style="display: none;">
+                <form id="register-form" onsubmit="handleUserRegister(event)">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" id="reg-name" required placeholder="Jane Doe">
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" id="reg-email" required placeholder="jane@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" id="reg-phone" placeholder="9876543210">
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" id="reg-password" required placeholder="••••••••">
+                    </div>
+                    <button type="submit" class="submit-btn">Create Account</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal" id="checkout-modal">
+        <div class="modal-overlay" onclick="closeModal('checkout-modal')"></div>
+        <div class="modal-container modal-large">
+            <div class="modal-header">
+                <h3><i class="fas fa-cash-register"></i> Checkout</h3>
+                <button class="modal-close-btn" onclick="closeModal('checkout-modal')">&times;</button>
+            </div>
+            <div id="checkout-modal-content">
+                <!-- Dynamically filled by app.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Confirmation Modal -->
+    <div class="modal" id="order-confirm-modal">
+        <div class="modal-overlay" onclick="closeModal('order-confirm-modal')"></div>
+        <div class="modal-container modal-medium">
+            <button class="modal-close-btn" onclick="closeModal('order-confirm-modal')">&times;</button>
+            <div id="order-confirm-content">
+                <!-- Dynamically filled by app.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- User Orders History Modal -->
+    <div class="modal" id="orders-modal">
+        <div class="modal-overlay" onclick="closeModal('orders-modal')"></div>
+        <div class="modal-container modal-large">
+            <div class="modal-header">
+                <h3><i class="fas fa-box-open"></i> My Order History</h3>
+                <button class="modal-close-btn" onclick="closeModal('orders-modal')">&times;</button>
+            </div>
+            <div id="orders-modal-content">
+                <!-- Dynamically filled by app.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Panel Modal -->
+    <div class="modal" id="admin-modal">
+        <div class="modal-overlay" onclick="closeModal('admin-modal')"></div>
+        <div class="modal-container modal-xlarge">
+            <div class="modal-header">
+                <h3><i class="fas fa-user-shield"></i> Lana Admin Panel</h3>
+                <button class="modal-close-btn" onclick="closeModal('admin-modal')">&times;</button>
+            </div>
+            <div id="admin-modal-content">
+                <!-- Dynamically filled by app.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Form Modal (Add / Edit Product) -->
+    <div class="modal" id="admin-form-modal">
+        <div class="modal-overlay" onclick="closeModal('admin-form-modal')"></div>
+        <div class="modal-container modal-medium">
+            <button class="modal-close-btn" onclick="closeModal('admin-form-modal')">&times;</button>
+            <div id="admin-form-modal-content">
+                <!-- Dynamically filled by app.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Frontend Script -->
+    <script src="app.js"></script>
+</body>
+
+</html>
