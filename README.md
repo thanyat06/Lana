@@ -1,10 +1,5 @@
  🛍️ Lana — Full-Stack E-Commerce Platform
 
-[![Node.js](https://img.shields.io/badge/Node.js-v18%2B-green.svg)](https://nodejs.org/)
-[![Express.js](https://img.shields.io/badge/Express.js-5.x-blue.svg)](https://expressjs.com/)
-[![SQLite](https://img.shields.io/badge/SQLite-Database-003B57.svg)](https://www.sqlite.org/)
-[![JavaScript](https://img.shields.io/badge/Frontend-Vanilla_JS_--_HTML5_--_CSS3-yellow.svg)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![License](https://img.shields.io/badge/License-ISC-brightgreen.svg)](LICENSE)
 
 **Lana** is a modern, responsive, and full-stack e-commerce web application designed to deliver an intuitive and seamless shopping experience. Powered by a lightweight **Node.js & Express** backend with an **SQLite** database, **Lana** handles dynamic product catalogs, user authentication, interactive cart & wishlist management, real-time order processing, product reviews, and a administrative dashboard.
 
@@ -39,7 +34,7 @@
 
 ---
 
-## 📁 Repository Structure
+##  Repository Structure
 
 ```
 Lana/
